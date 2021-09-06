@@ -1,0 +1,102 @@
+#clock{
+    position: relative;
+    width: 50rem;
+    height: 50rem;
+    border:.5rem solid black;
+    border-radius: 50%;
+    margin:0 auto;
+    
+}
+#clock-center{
+    position: absolute;
+    top: 48%;
+    left: 48%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: red;
+    
+}
+#minute-hand{
+    position: absolute;
+    width: .8rem;
+    height: 13rem;
+    background-color: #A19F9F;
+    left:40%;
+    z-index: -1;
+    top:.1rem;
+    transform-origin:top;
+    
+}
+#hour-hand{
+    position: absolute;
+    width: 1rem;
+    height: 9rem;
+    background-color: #A19F9F;
+    left:25%;
+    top:.1rem;
+    z-index: -1;
+    transform-origin: top;
+}
+#second{
+    position: absolute;
+    width: .2rem;
+    height: 20rem;
+    background-color: #0062C8;
+    z-index: -1;
+    left: 42%;
+    transform-origin: top;
+}
+.numbers{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.numbers:after{
+    position: absolute;
+    content: '';
+    width: .5rem;
+    height: 1.5rem;
+    background-color: black;
+    left: 51%;
+}
+#nmb1{
+    transform: rotate(30deg);
+}
+.numbers span{
+    font-size: 3rem;
+    position: absolute;
+    top:10%;
+}
+#nmb2{
+    transform: rotate(60deg);
+}
+#nmb3{
+    transform: rotate(90deg);
+}
+#nmb4{
+    transform: rotate(120deg);
+}
+#nmb5{
+    transform: rotate(150deg);
+}
+#nmb6{
+    transform: rotate(180deg);
+}
+#nmb7{
+    transform: rotate(210deg);
+    
+}
+#nmb8{
+    transform:rotate(240deg);
+}
+#nmb9{
+    transform: rotate(270deg);
+}
+#nmb10{
+    transform: rotate(300deg);
+}
+#nmb11{
+    transform: rotate(330deg);
+}

@@ -1,0 +1,65 @@
+<div class="card w-50">
+  <div class="card-header text-center">
+    <h5 class="card-title">SET ALARM</h5>
+    <select [(ngModel)]="alarms.selectedYear">
+      <option *ngFor="let y of alarms.years">
+        {{y}}
+      </option>
+      
+    </select>
+    /
+    <select [(ngModel)]="alarms.selectedMonth" >
+      <option *ngFor="let m of alarms.months"> 
+        {{m}}
+      </option>
+      
+    </select>
+    /
+    <select [(ngModel)]="alarms.selectedDay">
+     <option *ngFor="let d of alarms.setDays()">
+       {{d}}
+     </option>
+    </select>
+    --->
+    <select [(ngModel)]="alarms.selectedHour">
+      <option *ngFor="let h of alarms.setHours()">
+        {{h}}
+      </option>  
+    </select>
+    :
+    <select [(ngModel)]="alarms.selectedMin">
+      <option *ngFor="let m of alarms.setMins()">
+        {{m}}
+      </option>
+    </select>
+    <span>Name:</span><input type="text" #alarmName>
+    <button #setAlarm class="btn btn-success" (click)="alarms.setAlarm(alarmName.value,alarms.selectedYear,alarms.selectedMonth,alarms.selectedDay,alarms.selectedHour,alarms.selectedMin)">Set Alarm</button>
+  </div>
+</div>
+
+<div class="card bg-info w-50">
+  <ul *ngIf="alarms.getTimeForCount()>0">
+    <li *ngIf="alarms.getTimeFor().timeFor!==2">
+      {{alarms.getTimeFor().name}}
+      <button class="btn btn-success" (click)="alarms.delete(alarms.getTimeFor())">OK</button>
+      <button class="btn btn-secondary" (click)="alarms.snooze(alarms.getTimeFor().id)">Snooze It!</button>
+    </li>
+    
+   
+  </ul>
+</div>
+
+<div class="card w-50" *ngIf="alarms.getAlarmsLength()>0">
+  <div class="card-header text-center">
+    <h5 class="card-title">MY ALARMS</h5>
+    <ul>
+      <li *ngFor="let alarm of alarms.getAlarms()">
+        {{alarm.name}} -- {{alarm.year}}/{{alarm.month}}/{{alarm.day}} {{alarm.hour}}:{{alarm.minute}}
+        <button #delete class="btn btn-danger" (click)="alarms.delete(alarm)">X</button>
+        <button #update class="btn btn-primary" (click)="alarms.update(alarm,alarmName.value,alarms.selectedYear,alarms.selectedMonth,alarms.selectedDay,alarms.selectedHour,alarms.selectedMin)">Update</button>
+      </li>
+    </ul>
+    <button #deleteAll class="btn btn-warning" (click)="alarms.deleteAll()">Delete All</button>
+  </div>
+</div>
+
